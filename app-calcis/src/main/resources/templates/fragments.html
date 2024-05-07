@@ -1,0 +1,218 @@
+<link rel="stylesheet" th:href="@{/css/header.css}">
+
+
+<style th:fragment="style">
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.navbar-collapse {
+    display: flex;
+    justify-content: end;
+    margin-right: 30px;
+}
+
+.header-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px 50px;
+}
+
+.btn-back {
+    border: none;
+    outline: none;
+    padding: 3px;
+    background-color: transparent;
+  }
+
+.header-section input, .header-section select {
+    height: 37.6px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+
+}
+
+form > input, select {
+  border-radius: 0px;
+}
+
+.btn-add {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-add i {
+  margin-right: 10px;
+}
+
+.box-filter {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.box-filter button {
+    border-radius: 0px;
+}
+
+.box-search {
+    display: flex;
+    align-items: center;    
+}
+
+.box-search label {
+    border-radius: 0px;
+}
+
+.body-section {
+  margin: 0 30px;
+}
+
+a {
+  color: black;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar-collapse {
+      justify-content: start;
+    }
+
+    .header-section {
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        margin: 20px 15px;
+    }
+
+    form {
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        padding: 0;
+    }
+
+    form > .btn {
+     order: 3;
+     margin-top: 15px;
+    }
+
+    .box-filter {
+        justify-content: center;
+        margin: 15px 0px 0px 0px;
+    }
+
+    .box-search {
+        margin-top: 15px;       
+    }
+
+    .body-section {
+      margin: 0;
+      overflow-x: auto;
+    }
+
+    .responsive-table, .responsive-table thead, .responsive-table tbody, .responsive-table th, .responsive-table td, .responsive-table tr {
+        display: block;
+    }
+
+    .responsive-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .responsive-table td {
+        position: relative;
+        padding-left: 50%;
+        border-bottom: 1px gray;
+    }
+
+    .responsive-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .responsive-table tr {
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .responsive-table .actions .fa-pen {
+        font-size: 20px;
+        margin-right: 40px;
+    }
+
+    .responsive-table .actions .fa-trash {
+        margin-right: 170px;
+        font-size: 20px;
+    }
+
+    .actions {
+      order: 1;
+    }
+
+    .header-section input, .header-section select {
+      width: 80vw;
+    }
+}
+</style>
+
+
+
+
+<header th:fragment="header(title)">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a th:text="${title}" class="navbar-brand" href="/home">Página Principal</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sales">Vendas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/clients">Clientes</a>
+            </li>
+            <li class="nav-item">
+              <a href="/stock" class="nav-link">Estoque</a>
+            </li>
+            <li class="nav-item">
+              <a href="/cashier" class="nav-link">Caixa</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+</header>
+
+<div th:fragment="div-back" class="arrow-back">
+  <button  class="btn-back" onclick="window.location.href = '/home'">
+    <i  style="color: rgb(73, 72, 71);" class="fa-solid fa-arrow-left"></i>
+    <span style="color:rgb(73, 72, 71);">Voltar</span>
+  </button>
+</div>

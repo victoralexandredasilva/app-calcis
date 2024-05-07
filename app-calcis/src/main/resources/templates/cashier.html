@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" th:href="@{/css/general.css}">
+	<style th:replace="~{fragments :: style}"></style>
+	<style>
+		.box-values, .box-invoicing {
+			width: 200px;
+			border: 1px solid black;
+			border-radius: 10px;
+			margin: 0px 10px;
+			overflow: hidden;
+		}
+
+		.box-values, .box-invoicing p {
+			background-color: black;
+			color:white;
+			text-align: center;
+		}
+
+
+		.box-invoicing, .box-values span {
+			font-size: 23px;
+			margin-bottom: 5px;
+		}
+
+
+
+		.filter-information {
+			display: flex;
+			width: 30%;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		
+
+		.financial-dashboard .general-informations .box {
+			display: flex;
+		}
+
+		.header-body-section {
+			display: flex;
+			align-items: center;
+			justify-content: end;
+		}
+
+		.header-body-section span {
+			margin-left: 20px;
+		}
+
+		.box {
+			border: 1px solid black;
+			display: flex;
+			justify-content: space-around;
+			padding: 10px;
+		}
+
+		.information {
+			text-align: center;
+			margin-top: 20px;
+			background-color: black;
+			color: white;
+		}
+
+		.information h5 {
+			margin-bottom: 0;
+		}
+
+		@media screen and (max-width: 768px) {
+			.box {
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.box .box-values {
+				margin: 10px;
+				width: 90%;
+				padding: 5px;
+			}
+
+			.box .box-values span {
+				margin-bottom: 10px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header th:replace="~{fragments :: header('Caixa')}"></header>
+       
+		   <div class="header-section">
+			   <div th:replace="~{fragments :: div-back}" class="arrow-back"></div>
+			   <form th:action="@{/filterPeriodCashier}" method="post">
+				   <div class="box-filter">
+					<select name="modePeriodCashier">
+						<option value="0">--Selecione uma período--</option>
+						<option value="HOJE">HOJE</option>
+						<option value="ONTEM">ONTEM</option>
+						<option value="7 DIAS">7 DIAS</option>
+						<option value="1 MÊS">30 DIAS</option>
+						<option value="2 MESES">60 DIAS</option>
+						<option value="3 MESES">90 DIAS</option>
+						<option value="ULTIMO ANO">ÚLTIMO ANO</option>
+					</select>
+					<button type="submit" class="btn btn-dark "><i class="fa-solid fa-filter"></i></button>
+				   </div>
+			   </form>
+		   </div>
+		   <div class="body-section">
+			<div class="header-body-section">
+				<span style="font-size: 14px; color: rgba(0, 0, 0, 0.619); margin-right: 10px; font-weight: bold;" th:text="${modePeriodCashier}"></span>
+			</div>
+
+			   <div class="financial-dashboard">
+				   <div class="general-informations">
+						<div class="information">
+							<h5>Informações Gerais</h5>
+						</div>
+						<div class="box">
+							<div class="box-values">
+								<p>Número de Vendas</p>
+								<span class="dinamic-value" th:text="${totalSaleQuantity}">0</span>
+							</div>
+							<div class="box-values">
+								<p>Faturamento (R$)</p>
+								<span class="dinamic-value" th:text="${totalInvoicing}">0.00</span>
+
+							</div>
+							<div class="box-values">
+								<p>Margem de Lucro(%)</p>
+								<span class="dinamic-value" th:text="${profitPercent}">0,00</span>
+							</div>
+							<div class="box-values">
+								<p>Lucro Bruto(R$)</p>
+								<span id="green-value" class="dinamic-value" th:text="${grossProfit}"></span>
+							</div>
+						</div>
+				   </div>
+			   </div>
+		   </div>
+	   
+
+	<!-- Seu script aqui -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Venda</title>
+</head>
+<body>
+<h1>Editar Venda</h1>
+
+<form th:action="@{/sales/edit/{id} (id=${sale.id})}" th:object="${sale}" method="post">
+
+    <div class="mb-3">
+        <label for="inputClientName" class="form-label">Cliente</label>
+        <select name="nameClient" id="inputClientName">
+            <option th:each="client : ${clients}"
+                    th:value="*{client.name}" th:text="${client.name}">
+            </option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="inputQuantity" class="form-label">Quantidade</label>
+        <input type="number" step="1" class="form-control" id="inputQuantity" name="quantity" th:value="*{quantity}">
+    </div>
+
+    <div class="mb-3">
+        <label for="inputFormPayment" class="form-label">Forma de Pagamento</label>
+        <select name="payment" id="inputFormPayment">
+            <option th:each="status : ${T(com.victoralexandre.appcalcis.enums.FormOfPayment).values()}"
+                    th:value="${status}" th:text="${status}">
+            </option>
+        </select>
+    </div>
+
+    <!-- Botão de submissão agora reflete a ação de atualização -->
+    <button type="submit" class="btn btn-dark">Atualizar Venda</button>
+</form>
+</body>
+</html>
