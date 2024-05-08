@@ -13,4 +13,4 @@ EXPOSE 9090
 
 COPY --from=build /target/app-calcis-0.0.1-SNAPSHOT.jar app.jar
 
-ENTRYPOINT [ "java", "-jar", "app.jar" ]
+ENTRYPOINT [ "java", "-jar", "app.jar" ] 
