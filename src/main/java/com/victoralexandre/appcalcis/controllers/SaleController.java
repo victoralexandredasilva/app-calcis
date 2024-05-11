@@ -41,7 +41,7 @@ public class SaleController {
     public ModelAndView createSales() {
         ModelAndView mv = new ModelAndView("createSales.html");
 
-        mv.addObject("products", productService.findProductsByActiveFalse());
+        mv.addObject("products", productService.findProductsByActiveTrue());
         mv.addObject("clients", clientService.getAllClients());
 
         return mv;
