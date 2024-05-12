@@ -145,7 +145,7 @@ public class ProductController {
 
         ModelAndView mv = new ModelAndView("stock.html");
 
-        List<Product> list = productRepository.findProductByName(nameProduct);
+        List<Product> list = productService.searchProducts(nameProduct);
 
         switch (modeFilter) {
             case "1":
