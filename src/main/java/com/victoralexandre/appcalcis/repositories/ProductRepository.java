@@ -14,6 +14,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     List<Product> findByActiveFalse();
 
-    @Query("SELECT p FROM Product p WHERE p.name like %?1% ")
-    List<Product> findProductByName(String name);
+    @Query("SELECT p FROM Product p WHERE p.name LIKE %:name%")
+    List<Product> findProductByName(@Param("name")String name);
 }

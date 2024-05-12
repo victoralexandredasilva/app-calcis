@@ -58,7 +58,7 @@ public class SaleController {
     @PostMapping("sales/searchProductCreate")
     public ModelAndView searchProductCreate(@RequestParam("nameProduct") String nameProduct) {
 
-        ModelAndView mv = new ModelAndView("/createSales.html");
+        ModelAndView mv = new ModelAndView("createSales.html");
 
         mv.addObject("products", productService.searchProducts(nameProduct));
         mv.addObject("clients", clientService.getAllClients());
