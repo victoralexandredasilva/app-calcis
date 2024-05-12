@@ -22,6 +22,8 @@
 
     <div th:replace="~{fragments :: div-back}"></div>
 
+    <div th:replace="~{fragments :: error}"></div>
+
     <form th:action="@{/clients/edit/{id}(id=${client.id})}" th:object="${client}" method="post">
         <div class="mb-3">
             <label for="inputName" class="form-label">Nome</label>
