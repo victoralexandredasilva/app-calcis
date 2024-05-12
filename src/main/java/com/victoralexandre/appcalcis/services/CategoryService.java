@@ -13,13 +13,13 @@ public class CategoryService {
     private CategoryRepository categoryRepository;
 
     public Category findFirstByName(String name) {
-        Category category = categoryRepository.findFirstByName(name);
+        Category category = categoryRepository.findFirstByName(name.toUpperCase());
 
         return category;
     }
 
     public Category instantiateCategory(String name) {
-        Category category = new Category(name);
+        Category category = new Category(name.toUpperCase());
 
         return category;
     }

@@ -16,7 +16,7 @@ public class ProductService {
     private ProductRepository productRepository;
 
     public Product findFirstByName(String name) {
-        Product product = productRepository.findFirstByName(name);
+        Product product = productRepository.findFirstByName(name.toUpperCase());
 
         return product;
     }
@@ -34,7 +34,7 @@ public class ProductService {
     public Product instantiateProduct(String name, String supplier, Double costPrice, Double salePrice, Category category, Integer quantity) {
         Product product = new Product();
 
-        product.setName(name);
+        product.setName(name.toUpperCase());
         product.setQuantity(quantity);
         product.setCategory(category);
         product.setSupplier(supplier);
@@ -53,7 +53,7 @@ public class ProductService {
 
         if(product == null) { return null; }
 
-        product.setName(name);
+        product.setName(name.toUpperCase());
         product.setSupplier(supplier);
         product.setCostPrice(costPrice);
         product.setSalePrice(salePrice);
@@ -81,7 +81,7 @@ public class ProductService {
     }
 
     public List<Product> searchProducts(String name) {
-        List<Product> products = productRepository.findProductByName(name);
+        List<Product> products = productRepository.findProductByName(name.toUpperCase());
 
         return products;
     }
