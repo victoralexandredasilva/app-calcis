@@ -50,6 +50,12 @@ public class ProductController {
     @PostMapping("/products/create")
     public ModelAndView createProduct(@RequestParam String name, @RequestParam String supplier, @RequestParam Double costPrice, @RequestParam Double salePrice, @RequestParam Integer quantity, @RequestParam String category) {
 
+        if(name.isBlank() || supplier.isBlank() || costPrice == 0 || salePrice == 0 || quantity == 0 || category.isBlank()) {
+            ModelAndView mv2 = new ModelAndView("createProduct.html");
+            mv2.addObject("msg", "Todos os campos devem estar preenchidos!");
+            return mv2;
+        }
+
         Product existing = productService.findFirstByName(name);
 
         if(existing != null) {
@@ -62,7 +68,6 @@ public class ProductController {
         if(salePrice < costPrice) {
             ModelAndView mv2 = new ModelAndView("createProduct.html");
             mv2.addObject("msg", "O preço de custo é maior que o preço de venda!");
-            mv2.addObject("product", newProduct);
             return mv2;
         }
 
@@ -71,7 +76,6 @@ public class ProductController {
         if(newCategory == null) {
             ModelAndView mv2 = new ModelAndView("createProduct.html");
             mv2.addObject("msg", "A categoria informada não foi encontrada no banco de dados");
-            mv2.addObject("product", newProduct);
             return mv2;
         }
 

@@ -29,7 +29,7 @@
 
     <div th:replace="~{fragments :: error}"></div>
 
-    <form action="/products/create" method="post" th:object="${product}>
+    <form action="/products/create" method="post">
 
             <label for="inputName" class="form-label">Nome</label>
             <input type="text" class="form-control" id="inputName" name="name" th:value="*{product.name}">
