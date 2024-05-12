@@ -38,7 +38,6 @@ public class ProductController {
     @Autowired
     private CategoryService categoryService;
 
-
 //    <---Requests--->
 
     @GetMapping("/products/create")
@@ -146,7 +145,7 @@ public class ProductController {
 
         ModelAndView mv = new ModelAndView("/stock.html");
 
-        List<Product> list = productService.searchProducts(nameProduct);
+        List<Product> list = productRepository.findProductByName(nameProduct);
 
         switch (modeFilter) {
             case "1":
