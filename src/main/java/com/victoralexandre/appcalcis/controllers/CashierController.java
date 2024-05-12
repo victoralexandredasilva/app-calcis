@@ -34,7 +34,7 @@ public class CashierController {
     @PostMapping("/filterPeriodCashier")
     public ModelAndView filterPeriodCashier(@RequestParam("modePeriodCashier") String modePeriodCashier) {
 
-        ModelAndView mv = new ModelAndView("/cashier");
+        ModelAndView mv = new ModelAndView("cashier.html");
 
         mv.addObject("totalInvoicing", String.format("R$ %.2f",cashierService.totalInvoicing(modePeriodCashier)));
         mv.addObject("grossProfit", String.format("R$ %.2f",cashierService.grossProfit(modePeriodCashier)));

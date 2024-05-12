@@ -68,7 +68,7 @@ public class SaleController {
 
     @PostMapping("/findSales")
     public ModelAndView findSales(@RequestParam("modePeriod") String modePeriod) {
-        ModelAndView mv = new ModelAndView("/sales.html");
+        ModelAndView mv = new ModelAndView("sales.html");
 
         LocalDateTime start = null;
         LocalDateTime end = LocalDateTime.now();

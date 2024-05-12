@@ -143,7 +143,7 @@ public class ProductController {
     @PostMapping("/findProducts")
     public ModelAndView searchProducts(@RequestParam("nameProduct") String nameProduct, @RequestParam("modeFilter") String modeFilter) {
 
-        ModelAndView mv = new ModelAndView("/stock.html");
+        ModelAndView mv = new ModelAndView("stock.html");
 
         List<Product> list = productRepository.findProductByName(nameProduct);
 
