@@ -58,7 +58,7 @@ public class ProductController {
 
         if(salePrice < costPrice) {
             ModelAndView mv2 = new ModelAndView("redirect:/products/create");
-            mv2.addObject("error", "O preço de custo é maior que o preço de venda!");
+            mv2.addObject("msg", "O preço de custo é maior que o preço de venda!");
             return mv2;
         }
 
@@ -66,7 +66,7 @@ public class ProductController {
 
         if(newCategory == null) {
             ModelAndView mv2 = new ModelAndView("redirect:/products/create");
-            mv2.addObject("error", "A categoria informada não foi encontrada no banco de dados");
+            mv2.addObject("msg", "A categoria informada não foi encontrada no banco de dados");
             return mv2;
         }
 
