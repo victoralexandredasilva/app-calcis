@@ -57,13 +57,17 @@ public class ProductController {
         }
 
         if(salePrice < costPrice) {
-            return new ModelAndView("redirect:/products/create");
+            ModelAndView mv2 = new ModelAndView("redirect:/products/create");
+            mv2.addObject("error", "O preço de custo é maior que o preço de venda!");
+            return mv2;
         }
 
         Category newCategory = categoryService.findFirstByName(category);
 
         if(newCategory == null) {
-            return new ModelAndView("redirect:/products/create");
+            ModelAndView mv2 = new ModelAndView("redirect:/products/create");
+            mv2.addObject("error", "A categoria informada não foi encontrada no banco de dados");
+            return mv2;
         }
 
         Product newProduct = productService.instantiateProduct(name, supplier, costPrice, salePrice, newCategory, quantity);
