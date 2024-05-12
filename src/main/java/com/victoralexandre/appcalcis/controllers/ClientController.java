@@ -44,7 +44,7 @@ public class ClientController {
 
 	@PostMapping("/findClients")
 	public ModelAndView filter(@RequestParam("modeFilterClients") String modeFilterClients, @RequestParam("nameClient") String nameClient) {
-		ModelAndView mv = new ModelAndView("/clients");
+		ModelAndView mv = new ModelAndView("/clients.html");
 
 		List<Client> list = clientService.findClientByName(nameClient);
 
