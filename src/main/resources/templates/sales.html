@@ -76,16 +76,34 @@
 						<td  data-label="Ações"
 							class="actions"
 							style="display: flex; align-items: center; justify-content: space-between;">
-							<a th:href="@{/sales/remove/{id} (id = ${sale.id})}">
+							<a th:href="@{/sales/remove/{id} (id = ${sale.id})}"
+							data-bs-toggle="modal" data-bs-target="#exampleModal">
 								<i class="fa-solid fa-trash"></i>
 							</a>
 						</td>
 					</tr>
 				</tbody>
 			</table>
-			
+			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <h1 class="modal-title fs-5" id="exampleModalLabel">Remover Venda</h1>
+					  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+					  Tem certeza que quer remover a venda?
+					</div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+					  <button type="button" class="btn btn-primary">Apagar Venda</button>
+					</div>
+				  </div>
+				</div>
+			  </div>
 		</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script th:replace="fragments :: script-modal"></script>
 </body>
 </html>
