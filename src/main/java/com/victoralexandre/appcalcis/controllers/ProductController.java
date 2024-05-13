@@ -59,7 +59,9 @@ public class ProductController {
         Product existing = productService.findFirstByName(name);
 
         if(existing != null) {
-            return new ModelAndView("redirect:/products/edit/" + existing.getId());
+            ModelAndView mv2 = new ModelAndView("createProduct.html");
+            mv2.addObject("msg", "Produto já está cadastrado no estoque");
+            return mv2;
         }
 
         Category newCategory = categoryService.findFirstByName(category);
