@@ -83,6 +83,11 @@ public class SaleService {
     }
 
     public void removeSale(Long id) {
+        Sale sale = saleRepository.findById(id).orElse(null);
+
+        Integer quantity = sale.getProduct().getQuantity();
+        sale.getProduct().setQuantity(quantity + sale.getQuantity());
+        
         saleRepository.deleteById(id);
     }
 
