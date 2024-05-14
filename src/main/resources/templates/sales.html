@@ -76,10 +76,10 @@
 						<td  data-label="Ações"
 							class="actions"
 							style="display: flex; align-items: center; justify-content: space-between;">
-							<a th:href="@{/sales/remove/{id} (id = ${sale.id})}"
+							<button class="btn btn-dark"
 							data-bs-toggle="modal" data-bs-target="#exampleModal">
 								<i class="fa-solid fa-trash"></i>
-							</a>
+							</button>
 						</td>
 					</tr>
 				</tbody>
@@ -92,11 +92,11 @@
 					  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
-					  Tem certeza que quer remover a venda?
+					  A venda será apagada permanentemente do banco de dados! Confirme para apagar.
 					</div>
 					<div class="modal-footer">
 					  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-					  <button type="button" class="btn btn-primary">Apagar Venda</button>
+					  <a type="button" class="btn btn-dark" th:href="@{/sales/remove/{id} (id = ${sale.id})}">Apagar Venda</a>
 					</div>
 				  </div>
 				</div>
