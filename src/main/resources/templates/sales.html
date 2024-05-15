@@ -80,7 +80,7 @@
 							<button class="btn-action" data-bs-toggle="modal" data-bs-target="#exampleModal">
 								<i class="fa-solid fa-trash"></i>
 							</button>
-							<div th:replace="fragments :: fragmodal('Remover venda', 'Certeza que deseja apagar a venda?', 'Apagar a Venda')"></div>
+							<div th:replace="~{fragments :: fragmodal('Remover venda', 'Certeza que deseja apagar a venda?', 'Apagar a Venda')}"></div>
 						</td>
 					</tr>
 				</tbody>
