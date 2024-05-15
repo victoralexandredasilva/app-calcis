@@ -228,11 +228,20 @@ a {
   <span th:text="${msg}"></span>
 </div>
 
-<script th:fragment="script-modal">
-  const myModal = document.getElementById('myModal')
-  const myInput = document.getElementById('myInput')
-
-  myModal.addEventListener('shown.bs.modal', () => {
-  myInput.focus()
-})
-</script>
+<div th:fragment="fragmodal(modaltitle, msg-modal, buttontext)" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="exampleModalLabel" th:text="${modaltitle}"></h1>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <span th:text="${msg-modal}"></span>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+      <a th:href="@{sales/remove/{id}(id=${sale.id})}" class="btn btn-dark" th:text="${buttontext}"></a>
+    </div>
+    </div>
+  </div>
+  </div>
