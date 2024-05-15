@@ -228,7 +228,7 @@ a {
   <span th:text="${msg}"></span>
 </div>
 
-<div th:fragment="fragmodal(modaltitle, msgmodal, buttontext)" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div th:fragment="fragmodal(modaltitle, msgmodal, buttontext, link)" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
     <div class="modal-header">
@@ -240,7 +240,7 @@ a {
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-      <a th:href="@{sales/remove/{id}(id=${sale.id})}" class="btn btn-dark" th:text="${buttontext}"></a>
+      <a th:href="@{${link}}" class="btn btn-dark" th:text="${buttontext}"></a>
     </div>
     </div>
   </div>
@@ -262,3 +262,12 @@ a {
       </div>
     </div>
     </div>
+
+    <script th:fragment="script-modal">
+      const myModal = document.getElementById('myModal')
+      const myInput = document.getElementById('myInput')
+
+      myModal.addEventListener('shown.bs.modal', () => {
+        myInput.focus()
+      })
+    </script>

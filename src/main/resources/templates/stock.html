@@ -91,9 +91,10 @@
 						<a th:href="@{/products/edit/{id} (id = ${product.id}) }">
 							<i class="fa-solid fa-pen"></i>
 						</a>
-						<a th:href="@{/products/remove/{id} (id = ${product.id}) }">
+						<button class="btn-action" data-bs-toggle="modal" data-bs-target="#exampleModal">
 							<i class="fa-solid fa-trash"></i>
-						</a>
+						</button>
+						<div th:replace="~{fragments :: fragmodal('Desativar produto', 'Certeza que deseja desativar o produto?', 'Desativar', '/products/remove/{id}(id=${product.id})')}"></div>
 					</td>
 				</tr>
 				</tbody>
