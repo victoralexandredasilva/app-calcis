@@ -83,7 +83,7 @@
 								<button class="btn-action" data-bs-toggle="modal" data-bs-target="#exampleModal">
 									<i class="fa-solid fa-trash"></i>
 								</button>
-								<div th:replace="~{fragments :: fragmodal('Desativar cliente', 'Certeza que deseja desativar o cliente?', 'Desativar', '/clients/remove/{id}(id=${client.id})')}"></div>
+								<div th:replace="~{fragments :: fragmodal('Desativar cliente', 'Certeza que deseja desativar o cliente?', 'Desativar', '/clients/remove/{id}', 'id=' + ${client.id})}"></div>
 							</td>
 						</tr>
 					  </tbody>
@@ -91,6 +91,6 @@
 				<a href="/clients/inactives">Clientes Inativos</a>
 			</div>
 		</div>
-		
+<script th:replace="~{fragments :: script-modal}"></script>	
 </body>
 </html>

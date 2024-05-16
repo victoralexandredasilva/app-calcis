@@ -94,7 +94,7 @@
 						<button class="btn-action" data-bs-toggle="modal" data-bs-target="#exampleModal">
 							<i class="fa-solid fa-trash"></i>
 						</button>
-						<div th:replace="~{fragments :: fragmodal('Desativar produto', 'Certeza que deseja desativar o produto?', 'Desativar', '/products/remove/{id}(id=${product.id})')}"></div>
+						<div th:replace="~{fragments :: fragmodal('Desativar produto', 'Certeza que deseja desativar o produto?', 'Desativar', '/products/remove/{id}', 'id=' + ${product.id})}"></div>
 					</td>
 				</tr>
 				</tbody>
