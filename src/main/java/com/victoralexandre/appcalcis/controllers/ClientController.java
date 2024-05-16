@@ -99,7 +99,7 @@ public class ClientController {
 
 		clientService.saveClient(client);
 
-		return new ModelAndView("redirect:/clients");
+		return new ModelAndView("redirect:/clients/inactives");
 	}
 
 	@GetMapping("/clients/edit/{id}")
