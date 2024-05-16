@@ -80,7 +80,7 @@
 							<button class="btn-action" data-bs-toggle="modal" data-bs-target="#exampleModal">
 								<i class="fa-solid fa-trash"></i>
 							</button>
-							<div th:replace="~{fragments :: fragmodal('Remover Venda', 'Certeza que deseja remover a venda?', 'Remover Venda', 'sales/remove/{id}', 'id=' + ${sale.id})}"></div>
+							<div th:replace="~{fragments :: fragmodal('Remover Venda', 'Certeza que deseja remover a venda?', 'Remover Venda', 'sales/remove/' + ${sale.id})}"></div>
 						</td>
 					</tr>
 				</tbody>
