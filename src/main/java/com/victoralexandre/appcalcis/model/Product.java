@@ -32,7 +32,7 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    public Product(Long id, String name, String supplier, Double costPrice, Double salePrice, Integer quantity, Double totalValue) {
+    public Product(Long id, String name, String supplier, Double costPrice, Double salePrice, Integer quantity, Double totalValue, Category category) {
         this.id = id;
         this.name = name;
         this.supplier = supplier;
@@ -40,6 +40,7 @@ public class Product implements Serializable {
         this.salePrice = salePrice;
         this.quantity = quantity;
         this.totalValue = totalValue;
+        this.category = category;
     }
 
     public Long getId() {
