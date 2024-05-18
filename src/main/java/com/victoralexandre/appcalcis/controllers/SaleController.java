@@ -60,7 +60,8 @@ public class SaleController {
 
         ModelAndView mv = new ModelAndView("createSales.html");
 
-        mv.addObject("products", productService.searchProducts(nameProduct));
+        mv.addObject("products", productService.searchProducts(nameProduct).stream().filter(prod -> prod.isActive()));
+        
         mv.addObject("clients", clientService.getAllClients());
 
         return mv;
