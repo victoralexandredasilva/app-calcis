@@ -72,12 +72,12 @@
 						th:text="${sale.payment}">--</td>
 
 						<td data-label="Valor Total"
-						th:text="${T(java.lang.String).format('%.2f', sale.total) }">--</td>
+						th:text="${T(java.lang.String).format('%.-2f', sale.total) }">--</td>
 
 						<td  data-label="Ações"
 							class="actions"
 							style="display: flex; align-items: center; justify-content: space-between;">
-							<a class="btn-action" th:href="@{sales/remove/{id}(id = ${sale.id})" onclick="return confirm('Are you sure you want to delete this sale?');">
+							<a class="btn-action" th:href="@{sales/remove/{id}(id = ${sale.id})}" onclick="return confirm('Are you sure you want to delete this sale?');">
 								<i class="fa-solid fa-trash"></i>
 							</a>
 						</td>
