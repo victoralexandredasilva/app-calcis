@@ -92,9 +92,8 @@
                 </select>
             </div>
         </div>
-        <button type="submit" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Lançar</button>
+        <button type="submit" class="btn btn-dark">Lançar Venda</button>
     </form>
-    <div th:replace="~{fragments :: fragmodalform('Nova Venda', 'Venda lançada com sucesso!')}"></div>
 </section>
 
 <script>
@@ -106,6 +105,7 @@
             event.preventDefault();
             return false;
         }
+        confirm("Venda lançada com sucesso!")
         return true;
     }
 </script>

@@ -38,7 +38,7 @@ public class PageController {
 
 //	<---Requests--->
 
-	@GetMapping("/home")
+	@GetMapping
 	public ModelAndView home() {
 
 		ModelAndView mv = new ModelAndView("home.html");
