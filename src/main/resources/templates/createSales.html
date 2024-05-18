@@ -96,6 +96,18 @@
     </form>
     <div th:replace="~{fragments :: fragmodalform('Nova Venda', 'Venda lançada com sucesso!')}"></div>
 </section>
-<script th:replace="~{fragments :: script-modal}"></script></body>
 
+<script>
+    function validadeForm(event) {
+        const input = document.getElementById("inputQuantity");
+
+        if(input.value === "") {
+            alert("Todos os campos devem estar preenchidos");
+            event.preventDefault();
+            return false;
+        }
+        return true;
+    }
+</script>
+</body>
 </html>
