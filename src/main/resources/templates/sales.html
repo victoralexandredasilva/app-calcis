@@ -77,9 +77,9 @@
 						<td  data-label="Ações"
 							class="actions"
 							style="display: flex; align-items: center; justify-content: space-between;">
-							<button class="btn-action" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							<a class="btn-action" th:href="@{sales/remove/{id} (id = ${sale.id})">
 								<i class="fa-solid fa-trash"></i>
-							</button>
+							</a>
 						</td>
 					</tr>
 				</tbody>
