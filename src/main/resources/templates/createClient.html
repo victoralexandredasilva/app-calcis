@@ -20,7 +20,7 @@
 			
 			<div th:replace="~{fragments :: div-back}"></div>
 			<div th:replace="~{fragments :: error}"></div>
-			<form action="/clients/create" method="post">
+			<form action="/clients/create" method="post" onsubmit="validadeForm(event)">
 			  <div class="mb-3">
 			    <label for="inputName" class="form-label">Nome</label>
 			    <input type="text" class="form-control" id="inputName" name="name">
@@ -34,8 +34,8 @@
 			    <input type="email" class="form-control" id="inputEmail" name="email">
 			  </div>
 			  <div class="mb-3">
-			    <label for="inputAddress" class="form-label">Endereço</label>
-			    <input type="text" class="form-control" id="inputAddress" name="adress">
+			    <label for="inputAdress" class="form-label">Endereço</label>
+			    <input type="text" class="form-control" id="inputAdress" name="adress">
 			  </div>
 	
 			  <button type="submit" class="btn btn-dark">Criar novo Cliente</button>
@@ -43,5 +43,20 @@
 			<div th:replace="~{fragments :: fragmodalform('Novo Cliente', 'Cliente cadastrado com sucesso!')}"></div>
     </section>
 </body>
+<script>
+	function validadeForm(event) {
+		const iname = document.getElementById("inputName");
+		const iphone = document.getElementById("inputPhone");
+		const iemail = document.getElementById("inputEmail");
+		const iaddress = document.getElementById("inputAdress");
 
+		if(iname.value === "" || iphone.value === "" || iemail.value === "" || iaddress.value === "") {
+			alert("Todos os campos devem estar preenchidos!");
+			event.preventDefault();
+			return false;
+		}
+		return true;
+		confirm("Cliente cadastrado com sucesso!");
+}
+</script>
 </html>
