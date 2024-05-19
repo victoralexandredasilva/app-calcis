@@ -81,7 +81,8 @@
 								</a>
 
 								<a class="btn-action" 
-								th:href="@{/clients/remove/{id}(id=${client.id})}">
+								th:href="@{/clients/remove/{id}(id=${client.id})}" 
+								onclick="return confirm('Deseja desativar o cliente?')">
 									<i class="fa-solid fa-trash"></i>
 								</a>
 							</td>

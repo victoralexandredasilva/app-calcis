@@ -47,10 +47,11 @@
 					<th scope="col">Código</th>
 					<th scope="col">Momento do Lançamento</th>
 					<th scope="col">Produto</th>
-					<th class="text-center" scope="col">Quantidade</th>
-					<th class="text-center" scope="col">Cliente</th>
+					<th scope="col">Quantidade</th>
+					<th scope="col">Cliente</th>
 					<th scope="col">Forma de Pagamento</th>
-					<th class="text-center" scope="col">Total</th>
+					<th scope="col">Total</th>
+					<th scope="col">Ações</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -75,7 +76,7 @@
 						th:text="${T(java.lang.String).format('%.2f', sale.total) }">--</td>
 
 						<td  data-label="Ações"
-							class="actions"
+							class="actions text-center"
 							style="display: flex; align-items: center; justify-content: space-between;">
 							<a class="btn-action" th:href="@{sales/remove/{id}(id = ${sale.id})}" onclick="return confirm('Deseja remover a venda?');">
 								<i class="fa-solid fa-trash"></i>
