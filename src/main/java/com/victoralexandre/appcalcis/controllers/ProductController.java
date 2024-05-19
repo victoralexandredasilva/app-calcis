@@ -159,7 +159,7 @@ public class ProductController {
 
         ModelAndView mv = new ModelAndView("stock.html");
 
-        List<Product> list = productService.searchProducts(nameProduct);
+        List<Product> list = productService.searchProducts(nameProduct.toUpperCase()).stream().filter(client -> client.isActive()).collect(Collectors.toList());
 
         switch (modeFilter) {
             case "1":
