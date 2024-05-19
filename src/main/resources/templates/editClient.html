@@ -25,7 +25,7 @@
 
     <div th:replace="~{fragments :: error}"></div>
 
-    <form th:action="@{/clients/edit/{id}(id=${client.id})}" th:object="${client}" method="post">
+    <form th:action="@{/clients/edit/{id}(id=${client.id})}" th:object="${client}" method="post" onsubmit="validateForm(event)">
         <div class="mb-3">
             <label for="inputName" class="form-label">Nome</label>
             <input type="text" class="form-control" id="inputName" name="name" th:value="*{name}">
@@ -39,15 +39,26 @@
             <input type="email" class="form-control" id="inputEmail" name="email" th:value="*{email}">
           </div>
           <div class="mb-3">
-            <label for="inputAddress" class="form-label">Endereço</label>
-            <input type="text" class="form-control" id="inputAddress" name="adress" th:value="*{adress}">
+            <label for="inputAdress" class="form-label">Endereço</label>
+            <input type="text" class="form-control" id="inputAdress" name="adress" th:value="*{adress}">
           </div>
 
         <!-- Botão de submissão agora reflete a ação de atualização -->
         <button type="submit" class="btn btn-dark">Atualizar Cliente</button>
-    </form>
-    <div th:replace="~{fragments :: fragmodalform('Editar cliente', 'Informações atualizadas com sucesso!')}"></div>
+    </form> 
 </section>
-<script th:replace="fragments :: script-modal"></script>
+<script>
+  function validateForm(event) {
+      const input = document.getElementById("inputQuantity");
+
+      if(input.value === "") {
+          alert("Todos os campos devem estar preenchidos");
+          event.preventDefault();
+          return false;
+      }
+      confirm("Informações atualizadas com sucesso!")
+      return true;
+  }
+</script>
 </body>
 </html>

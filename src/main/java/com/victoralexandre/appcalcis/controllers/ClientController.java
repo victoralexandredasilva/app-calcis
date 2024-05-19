@@ -16,6 +16,7 @@ import com.victoralexandre.appcalcis.repositories.ClientRepository;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Controller
@@ -46,7 +47,7 @@ public class ClientController {
 	public ModelAndView filter(@RequestParam("modeFilterClients") String modeFilterClients, @RequestParam("nameClient") String nameClient) {
 		ModelAndView mv = new ModelAndView("clients.html");
 
-		List<Client> list = clientService.findClientByName(nameClient);
+		List<Client> list = clientService.findClientByName(nameClient.toUpperCase()).stream().filter(client -> client.isActive()).collect(Collectors.toList());
 
 		switch (modeFilterClients) {
 			case "ORDENAR POR NOME (A-Z)":
