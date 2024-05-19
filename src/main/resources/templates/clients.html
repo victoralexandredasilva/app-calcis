@@ -80,17 +80,16 @@
 									<i class="fa-solid fa-pen"></i>
 								</a>
 
-								<button class="btn-action" data-bs-toggle="modal" data-bs-target="#exampleModal">
+								<a class="btn-action" 
+								th:href="@{/clients/remove/{id}(id=${client.id})}">
 									<i class="fa-solid fa-trash"></i>
-								</button>
-                                <div th:replace="~{fragments :: fragmodal('Desativar Cliente', 'Certeza que deseja desativar o cliente?', 'Desativar', '/clients/remove/' + ${client.id})}"></div>
+								</a>
 							</td>
 						</tr>
 					  </tbody>
 				</table>
 				<a href="/clients/inactives">Clientes Inativos</a>
 			</div>
-		</div>
-<script th:replace="~{fragments :: script-modal}"></script>	
+		</div>	
 </body>
 </html>
