@@ -25,7 +25,7 @@
 
     <div th:replace="~{fragments :: error}"></div>
 
-    <form th:action="@{/clients/edit/{id}(id=${client.id})}" th:object="${client}" method="post" onsubmit="validateForm(event)">
+    <form th:action="@{/clients/edit/{id}(id=${client.id})}" th:object="${client}" method="post" onsubmit="validadeForm(event)">
         <div class="mb-3">
             <label for="inputName" class="form-label">Nome</label>
             <input type="text" class="form-control" id="inputName" name="name" th:value="*{name}">
@@ -47,8 +47,9 @@
         <button type="submit" class="btn btn-dark">Atualizar Cliente</button>
     </form> 
 </section>
+</body>
 <script>
-  function validateForm(event) {
+  function validadeForm(event) {
       const input = document.getElementById("inputQuantity");
 
       if(input.value === "") {
@@ -60,5 +61,4 @@
       return true;
   }
 </script>
-</body>
 </html>
