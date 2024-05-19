@@ -25,7 +25,7 @@
 
     <div th:replace="~{fragments :: error}"></div>
 
-    <form th:action="@{/clients/edit/{id}(id=${client.id})}" th:object="${client}" method="post" onsubmit="validadeForm(event)">
+    <form th:action="@{/clients/edit/{id}(id=${client.id})}" th:object="${client}" method="post" onsubmit="validateForm(event)">
         <div class="mb-3">
             <label for="inputName" class="form-label">Nome</label>
             <input type="text" class="form-control" id="inputName" name="name" th:value="*{name}">
@@ -49,16 +49,19 @@
 </section>
 </body>
 <script>
-  function validadeForm(event) {
-      const input = document.getElementById("inputQuantity");
+  function validateForm(event) {
+    const iname = document.getElementById("inputName");
+    const iphone = document.getElementById("inputPhone");
+    const iemail = document.getElementById("inputEmail");
+    const iadress = document.getElementById("inputAdress");
 
-      if(input.value === "") {
-          alert("Todos os campos devem estar preenchidos");
-          event.preventDefault();
-          return false;
-      }
-      confirm("Informações atualizadas com sucesso!")
-      return true;
+    if(iname.value === "" || iphone.value === "" || iemail.value === "" || iadress.value === "") {
+      alert("Todos os campos devem estar preenchidos!");
+      event.preventDefault();
+      return false;
+    }
+    confirm("Informações atualizadas com sucesso!");
+    return true;
   }
-</script>
+    </script>
 </html>
